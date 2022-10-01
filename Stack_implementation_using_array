@@ -1,0 +1,68 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+class stack_using_array {
+	int *data, nextindex , capicity;          // This is private data
+public:
+	stack_using_array(int totalsize) {       //Constructor call for intitilize
+		data = new int [totalsize];
+		nextindex = 0;
+		capicity = totalsize;
+	}
+
+	int size() {
+		return nextindex;                    // For check Size
+	}
+
+
+	bool isempty() {
+		if (nextindex == 0) {
+			return true;                         // For size is empty or not
+		} else {
+			return false;
+		}
+	}
+
+
+	void push(int element) {
+		if (nextindex == capicity) {
+			return;                              // for push element in a stack
+		} else {
+			data[nextindex++] = element;
+		}
+	}
+
+	int pop() {
+		if (!isempty()) {
+			cout << "stack is empty" << endl;       // Pop element from stack
+			return 0;
+		}
+		nextindex--;
+		return nextindex;
+	}
+
+
+	int top() {
+		if (!isempty()) {
+			cout << "stack is empty" << endl;      // excess top element in stack
+			 return 0;
+		}
+		return (nextindex - 1);
+
+	}
+
+};
+int main() {
+	int n;                                    // main function in satck
+	cin >> n;
+	stack_using_array s(n);
+
+    s.push(10);
+    s.push(10);
+	s.push(10);
+	s.push(10);
+	s.push(10);
+
+	cout << s.top() << endl;
+
+}
