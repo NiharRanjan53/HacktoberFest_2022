@@ -1,0 +1,104 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Refresh
+
+Time (IST)	Status	Lang	Test Cases	Code
+2022-09-17 22:18:45	Correct	cpp	73 / 73	View
+2022-08-01 14:27:14	Correct	cpp	72 / 72	View
+2022-07-22 00:37:06	Correct	cpp	72 / 72	View
+2022-07-22 00:23:20	Correct	cpp	72 / 72	View
+2022-07-22 00:14:08	Correct	cpp	72 / 72	View
+2022-06-28 11:05:05	Correct	cpp	72 / 72	View
+2022-05-16 19:55:08	Correct	cpp	72 / 72	View
+2022-05-16 19:52:32	Correct	cpp	72 / 72	View
+2022-05-16 01:15:02	Correct	cpp	72 / 72	View
+2022-05-16 01:14:36	Compilation Error	cpp	0 / 72	View
+2022-04-30 02:32:45	Correct	cpp	72 / 72	View
+2022-04-29 11:13:37	Correct	cpp	72 / 72	View
+C++ (g++ 5.4)
+Average Time:
+15m
+Your Time:
+98m
+
+
+
+ 
+
+Custom Input
+{
+	public:
+	void DFS(int i,vector<bool> &vis,stack<int> &st,vector<int> adj[])
+	{
+	    vis[i]=true;
+	    for( auto x: adj[i])
+	    {
+	        if(vis[x] == false)
+	        {
+	            vis[i]= true;
+	            DFS(x,vis,st,adj);
+	        }
+	    }
+	    st.push(i);
+	}
+	//Function to return list containing vertices in Topological order. 
+	vector<int> topoSort(int V, vector<int> adj[]) 
+	{
+	    vector<int> ans;
+	    stack<int> st;
+	    vector<bool> vis(V,0);
+	    for(int i=0;i<V;i++)
+	    {
+	        if(vis[i] == 0)
+	        {
+	            DFS(i,vis,st,adj);
+	        }
+	    }
+	    while(st.size()>0)
+	    {
+	        int x = st.top();
+	        st.pop();
+	        ans.push_back(x);
+	    }
+	    return ans;
+	}
+};
