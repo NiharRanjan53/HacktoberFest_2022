@@ -1,21 +1,21 @@
-//Sum of N natural numbers 
-int sum(int n)
-{
- if(n==0)
- return 0;
- return sum(n-1)+n;
+#include<iostream>
+using namespace std;
+
+int add(int n);
+
+int main() {
+    int n;
+
+    cout << "Enter a positive integer: ";
+    cin >> n;
+
+    cout << "Sum =  " << add(n);
+
+    return 0;
 }
-int Isum(int n)
-{
- int s=0,i; 
- for(i=1;i<=n;i++) 
- s=s+i;
- 
- return s;
-}
-int main()
-{
- int r=sum(5);
- printf("%d ",r);
- return 0;
+
+int add(int n) {
+    if(n != 0)
+        return n + add(n - 1);
+    return 0;
 }
